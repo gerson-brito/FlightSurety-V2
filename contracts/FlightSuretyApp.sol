@@ -124,10 +124,6 @@ contract FlightSuretyApp {
         flightSuretyData.fundAirline.value(msg.value)(airlineAddress, msg.value);
     }
 
-    //function registerFlight() {
-
-    //}
-
     function buy(string flightName, address airlineAddress, uint256 timestamp) external payable requireIsOperational {
         require(flightSuretyData.isAirlineRegistered(msg.sender), "It's not an registered airline");
         require(flightSuretyData.isAirlineFunded(msg.sender), "It's not a funded airline");

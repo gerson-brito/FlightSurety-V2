@@ -30,6 +30,7 @@ contract FlightSuretyData {
         uint voteCounter;
     }
 
+
     mapping(address => Airline) private registeredAirlines;
     mapping(address => Airline) private pendingAirlines;
     mapping(address => Client) private clients;
@@ -77,25 +78,26 @@ contract FlightSuretyData {
         operational = mode;
     }     
 
-    function isAirlineRegistered(address airline) external view returns(bool) {
+    function isAirlineRegistered(address airline) external view requireIsOperational returns(bool) {
         return registeredAirlines[airline].airlineAddress != address(0);
     }
 
-    function isAirlinePending(address airline) external view returns(bool) {
+    function isAirlinePending(address airline) external view requireIsOperational returns(bool) {
         return pendingAirlines[airline].airlineAddress != address(0);
     }
 
-    function getRegisteredAirlineCounter() external view returns(uint256) {
+    function getRegisteredAirlineCounter() external view requireIsOperational returns(uint256) {
         return registeredAirlineCounter;
     }
 
-    function isAirlineFunded(address airline) external view returns(bool) {
+    function isAirlineFunded(address airline) external view requireIsOperational returns(bool) {
         return registeredAirlines[airline].isFunded;
     }
 
-    function getClientCredit(address insuredClient) external view returns(uint256) {
+    function getClientCredit(address insuredClient) external view requireIsOperational returns(uint256) {
         return clients[insuredClient].credit;
     }
+
 
     /********************************************************************************************/
     /*                                     SMART CONTRACT FUNCTIONS                             */

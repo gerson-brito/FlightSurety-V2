@@ -18,7 +18,7 @@ FlightSurety is a sample application project for Udacity's Blockchain course.
 --------------------
 1. `npm install`
 2. `ganache-cli -a 20 -l 9999999 -m "gaze eager foster artefact square honey embark pencil fun vacant legal convince"`
-3. `npm test`
+3. `truffle test`
 4. `truffle migrate --network development`
 5. `npm run server`
 6. `npm run dapp`
