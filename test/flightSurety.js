@@ -10,10 +10,7 @@ contract('Flight Surety Tests', async (accounts) => {
         await config.flightSuretyData.authorizeCaller(config.flightSuretyApp.address);
     });
 
-    /****************************************************************************************/
-    /* Operations and Settings                                                              */
-    /****************************************************************************************/
-
+    
     it(`(multiparty) has correct initial isOperational() value`, async function () {
 
         // Get operating status
